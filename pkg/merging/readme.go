@@ -4,6 +4,7 @@ import (
 	"os"
 	"io/ioutil"
 	"fmt"
+	"strings"
 	"github.com/pelletier/go-toml"
 )
 
@@ -25,12 +26,14 @@ func MakeReadme(){
 	toml_data, _ := ioutil.ReadAll(hackpetToml)
 
 	snippets := Lists{}
+	desc := strings.Replace(v.Description,"|","\\|",0)
+	comd := strings.Replace(v.Command,"|","\\|",0)
 
 	toml.Unmarshal(toml_data,&snippets)
 	readme := "| Description | Command |\n| ----------- | ------- |\n"
 
 	for _,v := range snippets.Snippet {
-		readme = readme + "| "+v.Description+" | `"+v.Command+"` |\n"
+		readme = readme + "| "+desc+" | `"+comd+"` |\n"
 	}
 
 
