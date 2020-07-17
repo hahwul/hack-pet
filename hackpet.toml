@@ -1,0 +1,21 @@
+# hackpet :: android_set_proxy.toml
+[[snippets]]
+command = "adb shell settings put global http_proxy <ip>:<port>"
+description = "Android set proxy"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: android_unset_proxy.toml
+[[snippets]]
+command = "adb shell settings put global http_proxy :0"
+description = "Android unset proxy"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: get_url_param.toml
+[[snippets]]
+command = "echo <domain> | ~/go/bin/gau | grep \"=\" | qsreplace -a "
+description = "get url with gau, included parameter"
+output = ""
+tag = ["hackpet"]
+
