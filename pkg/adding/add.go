@@ -12,8 +12,8 @@ type PetSnippet struct {
 	Command     string `toml:"command"`
 	Output      string `toml:"output"`
 	Tag         []string `toml:"tag"`
-}​
-​
+}
+
 func check(e error) {
 	if e != nil {
 		panic(e)
