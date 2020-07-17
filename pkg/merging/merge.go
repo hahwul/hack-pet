@@ -25,7 +25,8 @@ func Merge(path string){
 		fmt.Println(string(data))
 		check(err)
 		_, err = t.Write([]byte("# hackpet :: "+f.Name()+"\n"))
-		_, err = t.Write([]byte(data))
+		_, err = t.Write([]byte(data))	
+		MakeReadme()
 	}
 }
 
