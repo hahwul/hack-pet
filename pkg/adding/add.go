@@ -12,8 +12,7 @@ type PetSnippet struct {
 	Command     string `toml:"command"`
 	Output      string `toml:"output"`
 	Tag         []string `toml:"tag"`
-}
-​
+}​
 ​
 func check(e error) {
 	if e != nil {
@@ -31,4 +30,4 @@ func Add(command, desc, filename string){
 	f , err := os.Create(filename)
 	check(err)
 	_, err = f.Write([]byte(buffer))
-
+}
