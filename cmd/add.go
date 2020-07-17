@@ -32,7 +32,7 @@ var addCmd = &cobra.Command{
 		userInput3, _ := reader.ReadString('\n')
 		fmt.Println(userInput3)
 
-		add.Add(userInput,userInput2,userInput3)
+		add.Add(userInput[:len(userInput)-1],userInput2[:len(userInput2)-1],userInput3[:len(userInput3)-1])
 	},
 }
 
