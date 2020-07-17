@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
-	merge "github.com/hahwul/hack-pet/pkg/merge"
+	merge "github.com/hahwul/hack-pet/pkg/merging"
 )
 
 // mergeCmd represents the merge command
