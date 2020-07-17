@@ -18,12 +18,6 @@ type Lists struct {
 	Snippet []PetSnippet `toml:"snippets"`
 }
 
-func check(e error) {
-	if e != nil {
-		panic(e)
-	}
-}
-
 // MakeReadme is head + auto write body + foot
 func MakeReadme(){
 	hackpetToml, err := os.Open("hackpet.toml")
@@ -60,10 +54,7 @@ func MakeReadme(){
 		os.O_CREATE|os.O_RDWR|os.O_TRUNC,
 
 		os.FileMode(0644))
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
+	check(err)
 	defer file.Close()
 	_, err = file.Write([]byte(body))
 	if err != nil {
