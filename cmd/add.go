@@ -2,7 +2,10 @@ package cmd
 
 import (
 	"fmt"
+	"bufio"
+	"os"
 
+	add "github.com/hahwul/hack-pet/add"
 	"github.com/spf13/cobra"
 )
 
@@ -12,6 +15,24 @@ var addCmd = &cobra.Command{
 	Short: "Add snippet",
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("add called")
+		reader := bufio.NewReader(os.Stdin)
+
+		fmt.Println("[command]")
+		fmt.Print(">>> ")
+		userInput, _ := reader.ReadString('\n')
+		fmt.Println(userInput)
+
+		fmt.Println("[desc]")
+		fmt.Print(">>> ")
+		userInput2, _ := reader.ReadString('\n')
+		fmt.Println(userInput2)
+
+		fmt.Println("[toml filename | e.g nmap_full_scan.toml]")
+		fmt.Print(">>> ")
+		userInput3, _ := reader.ReadString('\n')
+		fmt.Println(userInput3)
+
+		Add(userInput,userInput2,userInput3)
 	},
 }
 
