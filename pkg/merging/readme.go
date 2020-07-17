@@ -30,7 +30,7 @@ func MakeReadme(){
 	readme := "| Description | Command |\n| ----------- | ------- |\n"
 
 	for _,v := range snippets.Snippet {
-		readme = readme + "| "+v.Description+" | "+v.Command+" |\n"
+		readme = readme + "| "+v.Description+" | `"+v.Command+"` |\n"
 	}
 
 
