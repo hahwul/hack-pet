@@ -5,7 +5,7 @@ import (
 	"bufio"
 	"os"
 
-	add "github.com/hahwul/hack-pet/adding"
+	add "github.com/hahwul/hack-pet/pkg/adding"
 	"github.com/spf13/cobra"
 )
 
