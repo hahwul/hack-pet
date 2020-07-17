@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
+	merge "github.com/hahwul/hack-pet/pkg/merge"
 )
 
 // mergeCmd represents the merge command
@@ -12,6 +13,11 @@ var mergeCmd = &cobra.Command{
 	Short: "Merge all snippets (/snippets/* => hack-pet.toml",
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("merge called")
+		if len(args) >= 1 {
+			merge.Merge(args[0])
+		} else {
+			merge.Merge("snippets")
+		}
 	},
 }
 
