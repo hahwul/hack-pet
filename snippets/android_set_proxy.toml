@@ -1,0 +1,6 @@
+[[snippets]]
+command = "adb shell settings put global http_proxy <ip>:<port>"
+description = "Android set proxy"
+output = ""
+tag = ["hackpet"]
+
