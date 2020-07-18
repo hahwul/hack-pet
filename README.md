@@ -23,7 +23,7 @@ Add the snippet you like from the list below to the snippet toml file(`~/.config
 | Android set proxy | `adb shell settings put global http_proxy <ip>:<port>` |
 | Android unset proxy | `adb shell settings put global http_proxy :0` |
 | Find subdomain and takeover (with subfinder/amass/assetfinder/subjack) | `subfinder -d <domain> >> domains ; assetfinder -subs-only <domain> >> domains ; amass enum -norecursive -noalts -d <domain> >> domains ; subjack -w domains -t 100 -timeout 30 -ssl -c ~/go/src/github.com/haccer/subjack/fingerprints.json -v  \| tee takeover` |
-| get url with gau, included parameter | `echo <domain> \| ~/go/bin/gau \| grep "=" \| qsreplace -a ` |
+| Get url with gau, included parameter | `echo <domain> \| ~/go/bin/gau \| grep "=" \| qsreplace -a ` |
 | Get urls from urlscanio | `gron "https://urlscan.io/api/v1/search/?q=domain:<domain>"  \| grep 'url' \| gron --ungron` |
 | Create a wordlist using param used in the domain | `waybackurls <domain> \|  grep "?" \| unfurl keys  \| sort -u \| tee -a paramlist.txt` |
 
@@ -50,6 +50,20 @@ description = "get url with gau, included parameter"
 output = ""
 tag = ["hackpet"]
 ```
+
+or 
+
+Write TOML Code in `./snippets` directory
+```
+[[snippets]]
+command = "echo <domain> | ~/go/bin/gau | grep \"=\" | qsreplace -a "
+description = "Get url with gau, included parameter"
+output = ""
+tag = ["hackpet"]
+
+```
+Please attach a `hackpet` to the tag. This allows you to distinguish between different snippets and hackpet.
+
 
 Second, move your DOML file to `/snippet` directory
 ```
