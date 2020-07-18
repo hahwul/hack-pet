@@ -8,6 +8,7 @@ import (
 	"github.com/pelletier/go-toml"
 )
 
+// PetSnippet is struct of pet
 type PetSnippet struct {
 	Description string `toml:"description"`
 	Command     string `toml:"command"`
@@ -15,6 +16,7 @@ type PetSnippet struct {
 	Tag         []string `toml:"tag"`
 }
 
+// Lists is struct of Petsnippet
 type Lists struct {
 	Snippet []PetSnippet `toml:"snippets"`
 }
@@ -23,11 +25,11 @@ type Lists struct {
 func MakeReadme(){
 	hackpetToml, err := os.Open("hackpet.toml")
 	check(err)
-	toml_data, _ := ioutil.ReadAll(hackpetToml)
+	tomlData, _ := ioutil.ReadAll(hackpetToml)
 
 	snippets := Lists{}
 
-	toml.Unmarshal(toml_data,&snippets)
+	toml.Unmarshal(tomlData,&snippets)
 	readme := "| Description | Command |\n| ----------- | ------- |\n"
 
 	for _,v := range snippets.Snippet {
@@ -40,16 +42,16 @@ func MakeReadme(){
 	fmt.Println(readme)
 	top, err := os.Open("template/head.md")
 	check(err)
-	head_data, _ := ioutil.ReadAll(top)
+	headData, _ := ioutil.ReadAll(top)
 
 	foot, err := os.Open("template/foot.md")
 	check(err)
-	foot_data, _ := ioutil.ReadAll(foot)
+	footData, _ := ioutil.ReadAll(foot)
 
 
-	_=head_data
-	_=foot_data
-	body := string(head_data) + readme + string(foot_data)
+	_=headData
+	_=footData
+	body := string(headData) + readme + string(footData)
 	fmt.Println("======================result====================")
 	fmt.Println(body)
 	file, err := os.OpenFile(
