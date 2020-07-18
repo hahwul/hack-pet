@@ -1,0 +1,6 @@
+[[snippets]]
+command = "dirsearch -e php,asp,aspx,jsp,py,txt,conf,config,bak,backup,swp,old,db,sql -u <URL>"
+description = "Brute forcing for endpoints with dirsearch"
+output = ""
+tag = ["hackpet"]
+
