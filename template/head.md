@@ -2,7 +2,6 @@
   <br>
   <a href=""><img src="https://user-images.githubusercontent.com/13212227/87844645-fd483080-c8f9-11ea-949b-006305de5ac4.png"></a>
   <br>
-  <img src="https://img.shields.io/github/v/release/hahwul/hack-pet?style=flat-square"> 
   <img src="https://img.shields.io/github/languages/top/hahwul/hack-pet?style=flat-square"> <img src="https://api.codacy.com/project/badge/Grade/17cac7b8d1e849a688577f2bbdd6ecd0"> <a href="https://goreportcard.com/report/github.com/hahwul/hack-pet"><img src="https://goreportcard.com/badge/github.com/hahwul/hack-pet"></a> <img src="https://img.shields.io/github/issues-closed/hahwul/hack-pet?style=flat-square"> 
 <a href="https://twitter.com/intent/follow?screen_name=hahwul"><img src="https://img.shields.io/twitter/follow/hahwul?style=flat-square"></a>
 </h1>
