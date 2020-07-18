@@ -1,0 +1,6 @@
+[[snippets]]
+command = "gron \"https://urlscan.io/api/v1/search/?q=domain:<domain>\"  | grep 'url' | gron --ungron"
+description = "Get urls from urlscanio"
+output = ""
+tag = ["hackpet"]
+
