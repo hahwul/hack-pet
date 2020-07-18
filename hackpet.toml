@@ -12,6 +12,13 @@ description = "Android unset proxy"
 output = ""
 tag = ["hackpet"]
 
+# hackpet :: certprobe.toml
+[[snippets]]
+command = "curl -s https://crt.sh/\\?q\\=\\%.<domain>\\&output\\=json | jq -r '.[].name_value' | sed 's/\\*\\.//g' | sort -u | httprobe | tee -a ./all.txt"
+description = "certprobe / runs httprobe on all the hosts from certspotter"
+output = ""
+tag = ["hackpet"]
+
 # hackpet :: find_subdomain_takeover_1.toml
 [[snippets]]
 command = "subfinder -d <domain> >> domains ; assetfinder -subs-only <domain> >> domains ; amass enum -norecursive -noalts -d <domain> >> domains ; subjack -w domains -t 100 -timeout 30 -ssl -c ~/go/src/github.com/haccer/subjack/fingerprints.json -v  | tee takeover"
@@ -30,6 +37,13 @@ tag = ["hackpet"]
 [[snippets]]
 command = "gron \"https://urlscan.io/api/v1/search/?q=domain:<domain>\"  | grep 'url' | gron --ungron"
 description = "Get urls from urlscanio"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: ipinfo.toml
+[[snippets]]
+command = "curl http://ipinfo.io/<ip>"
+description = "ipinfo"
 output = ""
 tag = ["hackpet"]
 

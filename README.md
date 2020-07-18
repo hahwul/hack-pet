@@ -2,7 +2,6 @@
   <br>
   <a href=""><img src="https://user-images.githubusercontent.com/13212227/87844645-fd483080-c8f9-11ea-949b-006305de5ac4.png"></a>
   <br>
-  <img src="https://img.shields.io/github/v/release/hahwul/hack-pet?style=flat-square"> 
   <img src="https://img.shields.io/github/languages/top/hahwul/hack-pet?style=flat-square"> <img src="https://api.codacy.com/project/badge/Grade/17cac7b8d1e849a688577f2bbdd6ecd0"> <a href="https://goreportcard.com/report/github.com/hahwul/hack-pet"><img src="https://goreportcard.com/badge/github.com/hahwul/hack-pet"></a> <img src="https://img.shields.io/github/issues-closed/hahwul/hack-pet?style=flat-square"> 
 <a href="https://twitter.com/intent/follow?screen_name=hahwul"><img src="https://img.shields.io/twitter/follow/hahwul?style=flat-square"></a>
 </h1>
@@ -29,9 +28,11 @@ Add the snippet you like from the list below to the snippet toml file(`~/.config
 | ----------- | ------- |
 | Android set proxy | `adb shell settings put global http_proxy <ip>:<port>` |
 | Android unset proxy | `adb shell settings put global http_proxy :0` |
+| certprobe / runs httprobe on all the hosts from certspotter | `curl -s https://crt.sh/\?q\=\%.<domain>\&output\=json \| jq -r '.[].name_value' \| sed 's/\*\.//g' \| sort -u \| httprobe \| tee -a ./all.txt` |
 | Find subdomain and takeover (with subfinder/amass/assetfinder/subjack) | `subfinder -d <domain> >> domains ; assetfinder -subs-only <domain> >> domains ; amass enum -norecursive -noalts -d <domain> >> domains ; subjack -w domains -t 100 -timeout 30 -ssl -c ~/go/src/github.com/haccer/subjack/fingerprints.json -v  \| tee takeover` |
 | Get url with gau, included parameter | `echo <domain> \| ~/go/bin/gau \| grep "=" \| qsreplace -a ` |
 | Get urls from urlscanio | `gron "https://urlscan.io/api/v1/search/?q=domain:<domain>"  \| grep 'url' \| gron --ungron` |
+| ipinfo | `curl http://ipinfo.io/<ip>` |
 | Create a wordlist using param used in the domain | `waybackurls <domain> \|  grep "?" \| unfurl keys  \| sort -u \| tee -a paramlist.txt` |
 
 ## Contribute
