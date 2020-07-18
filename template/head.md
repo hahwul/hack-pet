@@ -15,6 +15,9 @@ Simple command-line snippet manager, written in Go => [pet](https://github.com/k
 ### How to use it?
 Add the snippet you like from the list below to the snippet toml file(`~/.config/pet/snippet.toml` or `$ pet edit`) in pet. To add all items, you can also paste `hackpet.toml`.
 
+## Screenshot
+<img src="https://user-images.githubusercontent.com/13212227/87844969-7a28d980-c8fd-11ea-9c08-c96230937b19.png" width="100%">
+
 ## Tree
 ```
 .
