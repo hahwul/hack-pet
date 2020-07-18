@@ -1,6 +1,6 @@
 # hackpet :: android_set_proxy.toml
 [[snippets]]
-command = "adb shell settings put global http_proxy <ip>:<port>"
+command = "adb shell settings put global http_proxy <ip address>:<param>"
 description = "Android set proxy"
 output = ""
 tag = ["hackpet"]
@@ -42,7 +42,7 @@ tag = ["hackpet"]
 
 # hackpet :: ipinfo.toml
 [[snippets]]
-command = "curl http://ipinfo.io/<ip>"
+command = "curl http://ipinfo.io/<param>"
 description = "ipinfo"
 output = ""
 tag = ["hackpet"]

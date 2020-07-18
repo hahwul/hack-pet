@@ -15,6 +15,9 @@ Simple command-line snippet manager, written in Go => [pet](https://github.com/k
 ### How to use it?
 Add the snippet you like from the list below to the snippet toml file(`~/.config/pet/snippet.toml` or `$ pet edit`) in pet. To add all items, you can also paste `hackpet.toml`.
 
+## Screenshot
+<img src="https://user-images.githubusercontent.com/13212227/87844969-7a28d980-c8fd-11ea-9c08-c96230937b19.png" width="100%">
+
 ## Tree
 ```
 .
@@ -26,13 +29,13 @@ Add the snippet you like from the list below to the snippet toml file(`~/.config
 
 | Description | Command |
 | ----------- | ------- |
-| Android set proxy | `adb shell settings put global http_proxy <ip>:<port>` |
+| Android set proxy | `adb shell settings put global http_proxy <ip address>:<param>` |
 | Android unset proxy | `adb shell settings put global http_proxy :0` |
 | certprobe / runs httprobe on all the hosts from certspotter | `curl -s https://crt.sh/\?q\=\%.<domain>\&output\=json \| jq -r '.[].name_value' \| sed 's/\*\.//g' \| sort -u \| httprobe \| tee -a ./all.txt` |
 | Find subdomain and takeover (with subfinder/amass/assetfinder/subjack) | `subfinder -d <domain> >> domains ; assetfinder -subs-only <domain> >> domains ; amass enum -norecursive -noalts -d <domain> >> domains ; subjack -w domains -t 100 -timeout 30 -ssl -c ~/go/src/github.com/haccer/subjack/fingerprints.json -v  \| tee takeover` |
 | Get url with gau, included parameter | `echo <domain> \| ~/go/bin/gau \| grep "=" \| qsreplace -a ` |
 | Get urls from urlscanio | `gron "https://urlscan.io/api/v1/search/?q=domain:<domain>"  \| grep 'url' \| gron --ungron` |
-| ipinfo | `curl http://ipinfo.io/<ip>` |
+| ipinfo | `curl http://ipinfo.io/<param>` |
 | Create a wordlist using param used in the domain | `waybackurls <domain> \|  grep "?" \| unfurl keys  \| sort -u \| tee -a paramlist.txt` |
 
 ## Contribute
