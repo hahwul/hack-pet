@@ -1,0 +1,6 @@
+[[snippets]]
+command = "waybackurls <domain> |  grep \"?\" | unfurl keys  | sort -u | tee -a paramlist.txt"
+description = "Create a wordlist using param used in the domain"
+output = ""
+tag = ["hackpet"]
+
