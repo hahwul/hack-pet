@@ -1,0 +1,6 @@
+[[snippets]]
+command = "nmap <ip range> -sn | grep \"<greping domain>\" | awk '{print $5}'"
+description = "Extract subdomains from IP Range"
+output = ""
+tag = ["hackpet"]
+
