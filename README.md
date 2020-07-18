@@ -48,6 +48,7 @@ $ pet search
 | ----------- | ------- |
 | Android set proxy | `adb shell settings put global http_proxy <ip address>:<param>` |
 | Android unset proxy | `adb shell settings put global http_proxy :0` |
+| Brute forcing for endpoints with dirsearch | `dirsearch -e php,asp,aspx,jsp,py,txt,conf,config,bak,backup,swp,old,db,sql -u <URL>` |
 | certprobe / runs httprobe on all the hosts from certspotter | `curl -s https://crt.sh/\?q\=\%.<domain>\&output\=json \| jq -r '.[].name_value' \| sed 's/\*\.//g' \| sort -u \| httprobe \| tee -a ./all.txt` |
 | Find subdomain and takeover (with subfinder/amass/assetfinder/subjack) | `subfinder -d <domain> >> domains ; assetfinder -subs-only <domain> >> domains ; amass enum -norecursive -noalts -d <domain> >> domains ; subjack -w domains -t 100 -timeout 30 -ssl -c ~/go/src/github.com/haccer/subjack/fingerprints.json -v  \| tee takeover` |
 | Get url with gau, included parameter | `echo <domain> \| ~/go/bin/gau \| grep "=" \| qsreplace -a ` |

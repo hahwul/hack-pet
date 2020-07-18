@@ -12,6 +12,13 @@ description = "Android unset proxy"
 output = ""
 tag = ["hackpet"]
 
+# hackpet :: bf_endpoint_dirsearch.toml
+[[snippets]]
+command = "dirsearch -e php,asp,aspx,jsp,py,txt,conf,config,bak,backup,swp,old,db,sql -u <URL>"
+description = "Brute forcing for endpoints with dirsearch"
+output = ""
+tag = ["hackpet"]
+
 # hackpet :: certprobe.toml
 [[snippets]]
 command = "curl -s https://crt.sh/\\?q\\=\\%.<domain>\\&output\\=json | jq -r '.[].name_value' | sed 's/\\*\\.//g' | sort -u | httprobe | tee -a ./all.txt"
