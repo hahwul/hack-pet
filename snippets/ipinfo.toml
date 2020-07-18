@@ -1,5 +1,5 @@
 [[snippets]]
-command = "curl http://ipinfo.io/<ip>"
+command = "curl http://ipinfo.io/<param>"
 description = "ipinfo"
 output = ""
 tag = ["hackpet"]
