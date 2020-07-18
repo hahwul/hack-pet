@@ -26,7 +26,7 @@ tag = ["hackpet"]
 or 
 
 Write TOML Code in `./snippets` directory
-```
+```toml
 [[snippets]]
 command = "echo <domain> | ~/go/bin/gau | grep \"=\" | qsreplace -a "
 description = "Get url with gau, included parameter"
@@ -50,4 +50,9 @@ $ hack-pet merge
 $ git add hackpet.toml README.md
 $ git commit -m "merge and distribute readme"
 $ git push -u origin master 
+```
+Oneline
+```
+$ hack-pet merge
+$ git add hackpet.toml README.md ; git commit -m "merge and distribute readme" ; git push -u origin master
 ```
