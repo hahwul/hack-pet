@@ -15,10 +15,22 @@ Simple command-line snippet manager, written in Go => [pet](https://github.com/k
 ### How to use it?
 Add the snippet you like from the list below to the snippet toml file(`~/.config/pet/snippet.toml` or `$ pet edit`) in pet. To add all items, you can also paste `hackpet.toml`.
 
-e.g
+1) Copy & Paste hackpet.toml file to pet snippet file
 ```
 $ cat ./hackpet.toml >> ~/.config/pet/snippet.toml
 ```
+
+2) Running pet
+```
+$ pet exec
+
+or 
+
+$ pet search
+```
+
+3) You can find hackpet's snippets. The snippet of the hackpet has the tag `#hackpet`. If you have a lot of snippets in use, you can find them quickly by searching for tags.
+
 
 ## Screenshot
 <img src="https://user-images.githubusercontent.com/13212227/87844969-7a28d980-c8fd-11ea-9c08-c96230937b19.png" width="100%">
