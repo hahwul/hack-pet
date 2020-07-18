@@ -1,6 +1,6 @@
 [[snippets]]
 command = "echo <domain> | ~/go/bin/gau | grep \"=\" | qsreplace -a "
-description = "get url with gau, included parameter"
+description = "Get url with gau, included parameter"
 output = ""
 tag = ["hackpet"]
 
