@@ -26,13 +26,13 @@ func MakeReadme(){
 	toml_data, _ := ioutil.ReadAll(hackpetToml)
 
 	snippets := Lists{}
-	desc := strings.Replace(v.Description,"|","\\|",0)
-	comd := strings.Replace(v.Command,"|","\\|",0)
 
 	toml.Unmarshal(toml_data,&snippets)
 	readme := "| Description | Command |\n| ----------- | ------- |\n"
 
 	for _,v := range snippets.Snippet {
+		desc := strings.Replace(v.Description,"|","\\|",0)
+		comd := strings.Replace(v.Command,"|","\\|",0)
 		readme = readme + "| "+desc+" | `"+comd+"` |\n"
 	}
 
