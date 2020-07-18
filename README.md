@@ -1,7 +1,7 @@
 # hack-pet
 
 ## hack-pet
-hack-pet is collection of command snippets that are useful to hackers/bug bounty hunters. It is similar to the [recon_profile](https://github.com/nahamsec/recon_profile), but because it uses the pet, it can manage the command set more progressively.
+hack-pet is collection of command snippets that are useful to hackers/bug bounty hunters. It is similar to the [recon_profile](https://github.com/nahamsec/recon_profile), but it uses the [pet](https://github.com/knqyf263/pet). pet can manage the command set more progressively.
 
 ### What is pet?
 Simple command-line snippet manager, written in Go => [pet](https://github.com/knqyf263/pet)
