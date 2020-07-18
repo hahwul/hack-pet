@@ -23,6 +23,20 @@ output = ""
 tag = ["hackpet"]
 ```
 
+or 
+
+Write TOML Code in `./snippets` directory
+```
+[[snippets]]
+command = "echo <domain> | ~/go/bin/gau | grep \"=\" | qsreplace -a "
+description = "Get url with gau, included parameter"
+output = ""
+tag = ["hackpet"]
+
+```
+Please attach a `hackpet` to the tag. This allows you to distinguish between different snippets and hackpet.
+
+
 Second, move your DOML file to `/snippet` directory
 ```
 $ mv get_url_param.toml ./snippets/
