@@ -22,7 +22,7 @@ Add the snippet you like from the list below to the snippet toml file(`~/.config
 | ----------- | ------- |
 | Android set proxy | `adb shell settings put global http_proxy <ip>:<port>` |
 | Android unset proxy | `adb shell settings put global http_proxy :0` |
-| get url with gau, included parameter | `echo <domain> \| ~/go/bin/gau \| grep "=" \| qsreplace -a ` |
+| get url with gau, included parameter | `echo <domain> | ~/go/bin/gau | grep "=" | qsreplace -a ` |
 
 ## Contribute
 First, Make snippet DOML with `hack-pet add` 
