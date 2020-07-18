@@ -12,10 +12,31 @@ description = "Android unset proxy"
 output = ""
 tag = ["hackpet"]
 
+# hackpet :: find_subdomain_takeover_1.toml
+[[snippets]]
+command = "subfinder -d <domain> >> domains ; assetfinder -subs-only <domain> >> domains ; amass enum -norecursive -noalts -d <domain> >> domains ; subjack -w domains -t 100 -timeout 30 -ssl -c ~/go/src/github.com/haccer/subjack/fingerprints.json -v  | tee takeover"
+description = "Find subdomain and takeover (with subfinder/amass/assetfinder/subjack)"
+output = ""
+tag = ["hackpet"]
+
 # hackpet :: get_url_param.toml
 [[snippets]]
 command = "echo <domain> | ~/go/bin/gau | grep \"=\" | qsreplace -a "
 description = "get url with gau, included parameter"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: geturl_urlscanio.toml
+[[snippets]]
+command = "gron \"https://urlscan.io/api/v1/search/?q=domain:<domain>\"  | grep 'url' | gron --ungron"
+description = "Get urls from urlscanio"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: make_wordlist_params.toml
+[[snippets]]
+command = "waybackurls <domain> |  grep \"?\" | unfurl keys  | sort -u | tee -a paramlist.txt"
+description = "Create a wordlist using param used in the domain"
 output = ""
 tag = ["hackpet"]
 
