@@ -31,8 +31,8 @@ func MakeReadme(){
 	readme := "| Description | Command |\n| ----------- | ------- |\n"
 
 	for _,v := range snippets.Snippet {
-		desc := strings.Replace(v.Description,"|","\\|",0)
-		comd := strings.Replace(v.Command,"|","\\|",0)
+		desc := strings.Replace(v.Description,"|","\\|",111)
+		comd := strings.Replace(v.Command,"|","\\|",111)
 		readme = readme + "| "+desc+" | `"+comd+"` |\n"
 	}
 
