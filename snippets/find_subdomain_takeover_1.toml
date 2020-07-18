@@ -1,0 +1,6 @@
+[[snippets]]
+command = "subfinder -d <domain> >> domains ; assetfinder -subs-only <domain> >> domains ; amass enum -norecursive -noalts -d <domain> >> domains ; subjack -w domains -t 100 -timeout 30 -ssl -c ~/go/src/github.com/haccer/subjack/fingerprints.json -v  | tee takeover"
+description = "Find subdomain and takeover (with subfinder/amass/assetfinder/subjack)"
+output = ""
+tag = ["hackpet"]
+
