@@ -1,8 +1,8 @@
 package cmd
 
 import (
-	"fmt"
 	"bufio"
+	"fmt"
 	"os"
 
 	add "github.com/hahwul/hack-pet/pkg/adding"
@@ -32,20 +32,10 @@ var addCmd = &cobra.Command{
 		userInput3, _ := reader.ReadString('\n')
 		fmt.Println(userInput3)
 
-		add.Add(userInput[:len(userInput)-1],userInput2[:len(userInput2)-1],userInput3[:len(userInput3)-1])
+		add.Add(userInput[:len(userInput)-1], userInput2[:len(userInput2)-1], userInput3[:len(userInput3)-1])
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(addCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// addCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// addCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
