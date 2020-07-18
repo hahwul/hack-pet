@@ -1,0 +1,6 @@
+[[snippets]]
+command = "curl http://ipinfo.io/<ip>"
+description = "ipinfo"
+output = ""
+tag = ["hackpet"]
+

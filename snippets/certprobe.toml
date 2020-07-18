@@ -1,0 +1,6 @@
+[[snippets]]
+command = "curl -s https://crt.sh/\\?q\\=\\%.<domain>\\&output\\=json | jq -r '.[].name_value' | sed 's/\\*\\.//g' | sort -u | httprobe | tee -a ./all.txt"
+description = "certprobe / runs httprobe on all the hosts from certspotter"
+output = ""
+tag = ["hackpet"]
+
