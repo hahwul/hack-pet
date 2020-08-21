@@ -1,3 +1,10 @@
+# hackpet :: allocated_ip_asn.toml
+[[snippets]]
+command = "whois -h whois.radb.net -i origin -T route $(whois -h whois.radb.net <Organization> | grep origin: | awk '{print $NF}' | head -1) | grep -w \"route:\" | awk '{print $NF}' | sort -n"
+description = "Find All Allocated IP ranges for ASN given an IP address"
+output = ""
+tag = ["hackpet"]
+
 # hackpet :: android_set_proxy.toml
 [[snippets]]
 command = "adb shell settings put global http_proxy <ip address>:<param>"
@@ -40,6 +47,104 @@ description = "Find subdomain and takeover (with subfinder/amass/assetfinder/sub
 output = ""
 tag = ["hackpet"]
 
+# hackpet :: gau_lfi.toml
+[[snippets]]
+command = "~/go/bin/gau <domain> | ~/go/bin/gf lfi | ~/go/bin/qsreplace \"/etc/passwd\" | xargs -I % -P 25 sh -c 'curl -s \"%\" 2>&1 | grep -q \"root:x\" && echo \"VULN! %\"'"
+description = "Find LFI with gau"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: gau_openredirect.toml
+[[snippets]]
+command = "export LHOST=\"http://localhost\"; gau <domain> | gf redirect | qsreplace \"$LHOST\" | xargs -I % -P 25 sh -c 'curl -Is \"%\" 2>&1 | grep -q \"Location: $LHOST\" && echo \"VULN! %\"'"
+description = "Find OpenRedirect with gau"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: get_bugcrowd_programs.toml
+[[snippets]]
+command = "curl -sL https://github.com/arkadiyt/bounty-targets-data/raw/master/data/bugcrowd_data.json | jq -r '.[].targets.in_scope[] | [.target, .type] | @tsv'"
+description = "Get bugcrowd programs"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: get_cidr_orgz.toml
+[[snippets]]
+command = "for DOMAIN in $(cat <FILE NAME>);do echo $(for ip in $(dig a $DOMAIN +short); do whois $ip | grep -e \"CIDR\\|Organization\" | tr -s \" \" | paste - -; d"
+description = "one | uniq); doneGet CIDR and Orgz from target lists"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: get_hackerone_programs.toml
+[[snippets]]
+command = "curl -sL https://github.com/arkadiyt/bounty-targets-data/blob/master/data/hackerone_data.json?raw=true | jq -r '.[].targets.in_scope[] | [.asset_identifier, .asset_type] | @tsv'"
+description = "Get hackerone programs"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: get_intigriti_programs.toml
+[[snippets]]
+command = "curl -sL https://github.com/arkadiyt/bounty-targets-data/raw/master/data/intigriti_data.json | jq -r '.[].targets.in_scope[] | [.endpoint, .type] | @tsv'"
+description = "Get intigriti programs"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: get_subs_archive.toml
+[[snippets]]
+command = "curl -s \"http://web.archive.org/cdx/search/cdx?url=*.<domain>/*&output=text&fl=original&collapse=urlkey\" | sed -e 's_https*://__' -e \"s/\\/.*//\" | sort -u"
+description = "Get Subdomains from Archive"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: get_subs_bufferover.toml
+[[snippets]]
+command = "curl -s https://dns.bufferover.run/dns?q=.<domain> |jq -r .FDNS_A[]|cut -d',' -f2|sort -u"
+description = "Get Subdomains from BufferOverRun"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: get_subs_certspotter.toml
+[[snippets]]
+command = "curl -s \"https://certspotter.com/api/v0/certs?domain=<domain>\" | grep -Po \"((http|https):\\/\\/)?(([\\w.-]*)\\.([\\w]*)\\.([A-z]))\\w+\" | sort -u"
+description = "Get Subdomains from CertSpotter"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: get_subs_crtsh.toml
+[[snippets]]
+command = "curl -s \"https://crt.sh/?q=%25.<domain>&output=json\" | jq -r '.[].name_value' | sed 's/\\*\\.//g' | sort -u"
+description = "Get Subdomains from crt.sh"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: get_subs_jldc.toml
+[[snippets]]
+command = "curl -s \"https://jldc.me/anubis/subdomains/<domain>?\" | grep -Po \"((http|https):\\/\\/)?(([\\w.-]*)\\.([\\w]*)\\.([A-z]))\\w+\" | sort -u"
+description = "Get Subdomains from JLDC"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: get_subs_rapiddns.toml
+[[snippets]]
+command = "curl -s \"https://rapiddns.io/subdomain/<domain>?full=1#result\" | grep \"<td><a\" | cut -d '\"' -f 2 | grep http | cut -d '/' -f3 | sed 's/#results//g' | sort -u"
+description = "Get Subdomains from RapidDNS.io"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: get_subs_riddler.toml
+[[snippets]]
+command = "curl -s \"https://riddler.io/search/exportcsv?q=pld:<domain>\" | grep -Po \"(([\\w.-]*)\\.([\\w]*)\\.([A-z]))\\w+\" | sort -u"
+description = "Get Subdomains from Riddler.io"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: get_subs_vt.toml
+[[snippets]]
+command = "curl -s \"https://www.virustotal.com/ui/domains/<domain>/subdomains?limit=40\" | grep -Po \"((http|https):\\/\\/)?(([\\w.-]*)\\.([\\w]*)\\.([A-z]))\\w+\" | sort -u"
+description = "Get Subdomains from VirusTotal"
+output = ""
+tag = ["hackpet"]
+
 # hackpet :: get_url_param.toml
 [[snippets]]
 command = "echo <domain> | ~/go/bin/gau | grep \"=\" | qsreplace -a "
@@ -47,10 +152,24 @@ description = "Get url with gau, included parameter"
 output = ""
 tag = ["hackpet"]
 
+# hackpet :: get_urls_from_sitemap.toml
+[[snippets]]
+command = "curl -s <sitemap URL> | xmllint --format - | grep -e 'loc' | sed -r 's|</?loc>||g'"
+description = "Get all the urls out of a sitemap.xml"
+output = ""
+tag = ["hackpet"]
+
 # hackpet :: geturl_urlscanio.toml
 [[snippets]]
 command = "gron \"https://urlscan.io/api/v1/search/?q=domain:<domain>\"  | grep 'url' | gron --ungron"
 description = "Get urls from urlscanio"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: gospider_xss.toml
+[[snippets]]
+command = "gospider -S <TARGET URLS FILE> -c 10 -d 5 --blacklist \".(jpg|jpeg|gif|css|tif|tiff|png|ttf|woff|woff2|ico|pdf|svg|txt)\" --other-source | grep -e \"code-200\" | awk '{print $5}'| grep \"=\" | qsreplace -a | dalfox pipe -o result.txt"
+description = "Find XSS with gospider"
 output = ""
 tag = ["hackpet"]
 
@@ -65,6 +184,41 @@ tag = ["hackpet"]
 [[snippets]]
 command = "waybackurls <domain> |  grep \"?\" | unfurl keys  | sort -u | tee -a paramlist.txt"
 description = "Create a wordlist using param used in the domain"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: portsscan_without_cloudflare.toml
+[[snippets]]
+command = "subfinder -silent -d <domain> | filter-resolved | cf-check | sort -u | naabu -rate 40000 -silent -verify | httprobe"
+description = "Ports Scan without CloudFlare"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: sort_tested_domain_recondev.toml
+[[snippets]]
+command = "curl \"https://recon.dev/api/search?key=<API Key>&domain=<domain>\" |jq -r '.[].rawDomains[]' | sed 's/ //g' | sort -u |httpx -silent"
+description = "Sort & Tested Domains from Recon.dev"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: subdomain_takeover.toml
+[[snippets]]
+command = "subfinder -d <target> >> domains ; assetfinder -subs-only <target> >> domains ; amass enum -norecursive -noalts -d <target> >> domains ; subjack -w domains -t 100 -timeout 30 -ssl -c ~/go/src/github.com/haccer/subjack/fingerprints.json -v 3 >> takeover ;"
+description = "Find Subdomains TakeOver"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: targets_urls_paramspider.toml
+[[snippets]]
+command = "cat <domains file> | xargs -I % python3 ~/tool/ParamSpider/paramspider.py -l high -o ./spidering/paramspider/% -d % ;"
+description = "Get multiple target's Custom URLs from ParamSpider"
+output = ""
+tag = ["hackpet"]
+
+# hackpet :: urls_probe_parallel.toml
+[[snippets]]
+command = "cat <domains file> | parallel -j50 -q curl -w 'Status:%{http_code}\\t  Size:%{size_download}\\t %{url_effective}\\n' -o /dev/null -sk"
+description = "URLs Probing with cURL + Parallel"
 output = ""
 tag = ["hackpet"]
 
