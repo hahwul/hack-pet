@@ -1,0 +1,6 @@
+[[snippets]]
+command = "curl -s \"https://certspotter.com/api/v0/certs?domain=<domain>\" | grep -Po \"((http|https):\\/\\/)?(([\\w.-]*)\\.([\\w]*)\\.([A-z]))\\w+\" | sort -u"
+description = "Get Subdomains from CertSpotter"
+output = ""
+tag = ["hackpet"]
+

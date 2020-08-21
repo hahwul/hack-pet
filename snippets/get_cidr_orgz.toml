@@ -1,0 +1,6 @@
+[[snippets]]
+command = "for DOMAIN in $(cat <FILE NAME>);do echo $(for ip in $(dig a $DOMAIN +short); do whois $ip | grep -e \"CIDR\\|Organization\" | tr -s \" \" | paste - -; d"
+description = "one | uniq); doneGet CIDR and Orgz from target lists"
+output = ""
+tag = ["hackpet"]
+

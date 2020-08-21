@@ -1,0 +1,6 @@
+[[snippets]]
+command = "curl -s \"https://www.virustotal.com/ui/domains/<domain>/subdomains?limit=40\" | grep -Po \"((http|https):\\/\\/)?(([\\w.-]*)\\.([\\w]*)\\.([A-z]))\\w+\" | sort -u"
+description = "Get Subdomains from VirusTotal"
+output = ""
+tag = ["hackpet"]
+

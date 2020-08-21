@@ -1,0 +1,6 @@
+[[snippets]]
+command = "curl -s \"http://web.archive.org/cdx/search/cdx?url=*.<domain>/*&output=text&fl=original&collapse=urlkey\" | sed -e 's_https*://__' -e \"s/\\/.*//\" | sort -u"
+description = "Get Subdomains from Archive"
+output = ""
+tag = ["hackpet"]
+

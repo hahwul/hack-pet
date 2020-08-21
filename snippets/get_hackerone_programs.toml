@@ -1,0 +1,6 @@
+[[snippets]]
+command = "curl -sL https://github.com/arkadiyt/bounty-targets-data/blob/master/data/hackerone_data.json?raw=true | jq -r '.[].targets.in_scope[] | [.asset_identifier, .asset_type] | @tsv'"
+description = "Get hackerone programs"
+output = ""
+tag = ["hackpet"]
+

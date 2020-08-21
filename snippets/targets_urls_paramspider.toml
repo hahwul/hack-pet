@@ -1,0 +1,6 @@
+[[snippets]]
+command = "cat <domains file> | xargs -I % python3 ~/tool/ParamSpider/paramspider.py -l high -o ./spidering/paramspider/% -d % ;"
+description = "Get multiple target's Custom URLs from ParamSpider"
+output = ""
+tag = ["hackpet"]
+

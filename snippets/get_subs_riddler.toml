@@ -1,0 +1,6 @@
+[[snippets]]
+command = "curl -s \"https://riddler.io/search/exportcsv?q=pld:<domain>\" | grep -Po \"(([\\w.-]*)\\.([\\w]*)\\.([A-z]))\\w+\" | sort -u"
+description = "Get Subdomains from Riddler.io"
+output = ""
+tag = ["hackpet"]
+

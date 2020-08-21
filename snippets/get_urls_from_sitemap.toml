@@ -1,0 +1,6 @@
+[[snippets]]
+command = "curl -s <sitemap URL> | xmllint --format - | grep -e 'loc' | sed -r 's|</?loc>||g'"
+description = "Get all the urls out of a sitemap.xml"
+output = ""
+tag = ["hackpet"]
+

@@ -1,0 +1,6 @@
+[[snippets]]
+command = "whois -h whois.radb.net -i origin -T route $(whois -h whois.radb.net <Organization> | grep origin: | awk '{print $NF}' | head -1) | grep -w \"route:\" | awk '{print $NF}' | sort -n"
+description = "Find All Allocated IP ranges for ASN given an IP address"
+output = ""
+tag = ["hackpet"]
+

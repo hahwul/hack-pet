@@ -1,0 +1,6 @@
+[[snippets]]
+command = "curl -s \"https://rapiddns.io/subdomain/<domain>?full=1#result\" | grep \"<td><a\" | cut -d '\"' -f 2 | grep http | cut -d '/' -f3 | sed 's/#results//g' | sort -u"
+description = "Get Subdomains from RapidDNS.io"
+output = ""
+tag = ["hackpet"]
+

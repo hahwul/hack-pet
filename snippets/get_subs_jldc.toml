@@ -1,0 +1,6 @@
+[[snippets]]
+command = "curl -s \"https://jldc.me/anubis/subdomains/<domain>?\" | grep -Po \"((http|https):\\/\\/)?(([\\w.-]*)\\.([\\w]*)\\.([A-z]))\\w+\" | sort -u"
+description = "Get Subdomains from JLDC"
+output = ""
+tag = ["hackpet"]
+

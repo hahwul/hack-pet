@@ -1,0 +1,6 @@
+[[snippets]]
+command = "curl \"https://recon.dev/api/search?key=<API Key>&domain=<domain>\" |jq -r '.[].rawDomains[]' | sed 's/ //g' | sort -u |httpx -silent"
+description = "Sort & Tested Domains from Recon.dev"
+output = ""
+tag = ["hackpet"]
+

@@ -1,0 +1,6 @@
+[[snippets]]
+command = "curl -s \"https://crt.sh/?q=%25.<domain>&output=json\" | jq -r '.[].name_value' | sed 's/\\*\\.//g' | sort -u"
+description = "Get Subdomains from crt.sh"
+output = ""
+tag = ["hackpet"]
+

@@ -1,0 +1,6 @@
+[[snippets]]
+command = "subfinder -silent -d <domain> | filter-resolved | cf-check | sort -u | naabu -rate 40000 -silent -verify | httprobe"
+description = "Ports Scan without CloudFlare"
+output = ""
+tag = ["hackpet"]
+
